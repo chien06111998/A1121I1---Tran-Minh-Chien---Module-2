@@ -26,17 +26,31 @@ public class DeleteValue {
         }
     }
     public static void delete(int [] arr, int value) {
-        int i = 0;
-        while (i < arr.length && arr[i] != value) {
-            i++;
-        }
-        if (arr[i] != value) {
-            System.out.println("There is no value in the field.");
-        } else {
-            for (int j = i; j < arr.length - 1; j++) {
-                arr[j] = arr[j+1];
-                arr[j+1] = 0;
+//        int i = 0;
+//        while (i < arr.length && arr[i] != value) {
+//            i++;
+//        }
+//        if (arr[i] != value) {
+//            System.out.println("There is no value in the field.");
+//        } else {
+//            for (int j = i; j < arr.length - 1; j++) {
+//                arr[j] = arr[j+1];
+//                arr[j+1] = 0;
+//            }
+//        }
+        boolean checkDelete = true;
+        for (int k = arr.length - 1; k >= 0; k--) {
+            if (arr[k] == value) {
+                for (int j = k; j < arr.length - 1; j++) {
+                    arr[j] = arr[j + 1];
+                }
+                arr[k+1] = 0;
+            } else {
+                checkDelete = false;
             }
+        }
+        if (!checkDelete) {
+            System.out.println("There is no value in the field.");
         }
     }
 }
