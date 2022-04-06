@@ -49,10 +49,14 @@ public class MyLinkedList {
 
     public void add(int index, Object data) {
         Node temp = head;
-        Node newNode = new Node(data);
+        Node holder;
         for (int i = 0; i < index && temp.next != null; i++) {
-            
+            temp = temp.next;
         }
+        holder = temp.next;
+        temp.next = new Node(data);
+        temp.next.next = holder;
+        numNOdes++;
     }
 
     public void print() {
