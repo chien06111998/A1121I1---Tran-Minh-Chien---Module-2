@@ -1,90 +1,38 @@
 package case_study.models;
 
 public class House extends Facility{
-    private String serviceName;
-    private double areaOfUse;
-    private double rentalExpenses;
-    private int maximumPeople;
-    private String rentalStyle;
+    private String roomStandard;
+    private int numberOfFloors;
 
     public House() {
     }
 
-    public House(String serviceName, double areaOfUse, double rentalExpenses, int maximumPeople, String rentalStyle) {
-        this.serviceName = serviceName;
-        this.areaOfUse = areaOfUse;
-        this.rentalExpenses = rentalExpenses;
-        this.maximumPeople = maximumPeople;
-        this.rentalStyle = rentalStyle;
+    public House(String ID, String serviceName, double areaOfUse, double rentalExpenses, int maximumPeople, String rentalStyle, String roomStandard, int numberOfFloors) {
+        super(ID, serviceName, areaOfUse, rentalExpenses, maximumPeople, rentalStyle);
+        this.roomStandard = roomStandard;
+        this.numberOfFloors = numberOfFloors;
     }
 
-    public String getServiceName() {
-        return serviceName;
+    public String getRoomStandard() {
+        return roomStandard;
     }
 
-    public void setServiceName(String serviceName) {
-        this.serviceName = serviceName;
+    public void setRoomStandard(String roomStandard) {
+        this.roomStandard = roomStandard;
     }
 
-    public double getAreaOfUse() {
-        return areaOfUse;
+    public int getNumberOfFloors() {
+        return numberOfFloors;
     }
 
-    public void setAreaOfUse(double areaOfUse) {
-        this.areaOfUse = areaOfUse;
-    }
-
-    public double getRentalExpenses() {
-        return rentalExpenses;
-    }
-
-    public void setRentalExpenses(double rentalExpenses) {
-        this.rentalExpenses = rentalExpenses;
-    }
-
-    public int getMaximumPeople() {
-        return maximumPeople;
-    }
-
-    public void setMaximumPeople(int maximumPeople) {
-        this.maximumPeople = maximumPeople;
-    }
-
-    public String getRentalStyle() {
-        return rentalStyle;
-    }
-
-    public void setRentalStyle(String rentalStyle) {
-        this.rentalStyle = rentalStyle;
+    public void setNumberOfFloors(int numberOfFloors) {
+        this.numberOfFloors = numberOfFloors;
     }
 
     @Override
     public String toString() {
-        return "House: " +
-                "\nService Name : " + serviceName +
-                "\nArea Of Use : " + areaOfUse +
-                "\nRental Expenses : " + rentalExpenses +
-                "\nMaximum People : " + maximumPeople +
-                "\nRental Style : " + rentalStyle;
-    }
-
-    @Override
-    public void roomStandard() {
-
-    }
-
-    @Override
-    public double poolArea() {
-        return 0;
-    }
-
-    @Override
-    public int numberOfFloors() {
-        return 0;
-    }
-
-    @Override
-    public void freeService() {
-
+        return "House: " + super.toString() +
+                ", Room Standard : " + roomStandard +
+                ", Number Of Floors : " + numberOfFloors;
     }
 }

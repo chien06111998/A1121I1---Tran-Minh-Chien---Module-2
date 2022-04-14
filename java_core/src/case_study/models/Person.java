@@ -1,6 +1,8 @@
 package case_study.models;
 
-public abstract class Person {
+import java.io.Serializable;
+
+public abstract class Person implements Serializable {
     private String ID;
     private String name;
     private String birthday;
@@ -81,11 +83,11 @@ public abstract class Person {
     @Override
     public String toString() {
         return  "ID : " + ID +
-                "\nName : " + name + '\'' +
-                "\nBirthday : " + birthday + '\'' +
-                "\nGender : " + gender + '\'' +
-                "\nID Card : " + IDCard +
-                "\nPhone Number : " + phoneNumber +
-                "\nEmail : " + email;
+                ", Name : " + name + '\'' +
+                ", Birthday : " + birthday + '\'' +
+                ", Gender : " + gender + '\'' +
+                ", ID Card : " + IDCard +
+                ", Phone Number : " + phoneNumber +
+                ", Email : " + email;
     }
 }

@@ -3,15 +3,18 @@ package case_study.services.impl;
 import case_study.models.Customer;
 import case_study.models.Employee;
 import case_study.services.CustomerService;
+import case_study.utils.ReadAndWriteFile;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class CustomerServiceImpl implements CustomerService {
     Scanner sc = new Scanner(System.in);
     private static List<Customer> customerList = new LinkedList<>();
+
+    static final String SEPARATION = ", ";
+
+    static ReadAndWriteFile readAndWriteFile = new ReadAndWriteFile();
+
     @Override
     public void addNewCustomer() {
         String ID, name, birthday, gender, email, customerType, address;
@@ -36,11 +39,14 @@ public class CustomerServiceImpl implements CustomerService {
         System.out.print("Enter address customer: ");
         address = sc.nextLine();
         Customer customer = new Customer(ID, name, birthday, gender, IDCard, phoneNumber, email, customerType, address);
-        customerList.add(customer);
+        //customerList.add(customer);
+        readAndWriteFile.writeFileObject(Collections.singletonList(customer.getID() + SEPARATION + customer.getName() + SEPARATION + customer.getBirthday() + SEPARATION + customer.getGender() + SEPARATION +
+                customer.getIDCard() + SEPARATION + customer.getPhoneNumber() + SEPARATION + customer.getEmail() + SEPARATION + customer.getCustomerType() + SEPARATION + customer.getAddress()), "D:\\A1121I1 - TranMinhChien-MD2\\java_core\\src\\case_study\\data\\customer.csv");
     }
 
     @Override
     public void displayNewCustemer() {
+        readAndWriteFile.readFileObject("D:\\A1121I1 - TranMinhChien-MD2\\java_core\\src\\case_study\\data\\customer.csv");
         for (Customer customer : customerList) {
             System.out.print(customer.toString() + "\n");
         }

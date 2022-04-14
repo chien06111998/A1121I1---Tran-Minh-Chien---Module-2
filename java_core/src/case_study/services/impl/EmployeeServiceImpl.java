@@ -2,14 +2,19 @@ package case_study.services.impl;
 
 import case_study.models.Employee;
 import case_study.services.EmployeeService;
+import case_study.utils.ReadAndWriteFile;
 
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
 public class EmployeeServiceImpl implements EmployeeService {
+    static final String SEPARATION = ", ";
     Scanner sc = new Scanner(System.in);
     private static List<Employee> employeeList = new ArrayList<>();
+    static ReadAndWriteFile readAndWriteFile = new ReadAndWriteFile();
     @Override
     public void addNewEmployee() {
         String ID, name, birthday, gender, email, degree, location;
@@ -37,10 +42,15 @@ public class EmployeeServiceImpl implements EmployeeService {
         salary = Long.parseLong(sc.nextLine());
         Employee employee = new Employee(ID, name, birthday, gender, IDCard, phoneNumber, email, degree, location, salary);
         employeeList.add(employee);
+        readAndWriteFile.writeFileObject(Collections.singleton((employee.getID() + SEPARATION + employee.getName() + SEPARATION + employee.getBirthday() + SEPARATION + employee.getGender() + SEPARATION +
+                employee.getIDCard() + SEPARATION + employee.getPhoneNumber() + SEPARATION + employee.getEmail() + SEPARATION + employee.getDegree() + SEPARATION + employee.getLocation() + SEPARATION +
+                employee.getSalary())), "D:\\A1121I1 - TranMinhChien-MD2\\java_core\\src\\case_study\\data\\employee.csv");
+        //readAndWriteFile.writeFileObject(employeeList, "D:\\A1121I1 - TranMinhChien-MD2\\java_core\\src\\case_study\\data\\employee.csv");
     }
 
     @Override
     public void displayEmployee() {
+        employeeList = (List<Employee>) readAndWriteFile.readFileObject("D:\\A1121I1 - TranMinhChien-MD2\\java_core\\src\\case_study\\data\\employee.csv");
         for (Employee employee : employeeList) {
             System.out.print(employee.toString() + "\n");
         }

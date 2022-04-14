@@ -1,16 +1,18 @@
 package case_study.models;
 
-public class Contract {
+import java.io.Serializable;
+
+public class Contract implements Serializable {
     private String numberOfContracts;
     private String customerCode;
     private String IDBooking;
-    private long deposit;
-    private long totalAmount;
+    private String deposit;
+    private String totalAmount;
 
     public Contract() {
     }
 
-    public Contract(String numberOfContracts, String customerCode, String IDBooking, long deposit, long totalAmount) {
+    public Contract(String numberOfContracts, String customerCode, String IDBooking, String deposit, String totalAmount) {
         this.numberOfContracts = numberOfContracts;
         this.customerCode = customerCode;
         this.IDBooking = IDBooking;
@@ -42,29 +44,29 @@ public class Contract {
         this.IDBooking = IDBooking;
     }
 
-    public long getDeposit() {
+    public String getDeposit() {
         return deposit;
     }
 
-    public void setDeposit(long deposit) {
+    public void setDeposit(String deposit) {
         this.deposit = deposit;
     }
 
-    public long getTotalAmount() {
+    public String getTotalAmount() {
         return totalAmount;
     }
 
-    public void setTotalAmount(long totalAmount) {
+    public void setTotalAmount(String totalAmount) {
         this.totalAmount = totalAmount;
     }
 
     @Override
     public String toString() {
         return "Contract: " +
-                "\nNumber Of Contracts : " + numberOfContracts +
-                "\nCustomer Code : " + customerCode +
-                "\nID Booking : " + IDBooking +
-                "\nDeposit : " + deposit +
-                "\nTotal Amount : " + totalAmount;
+                "Number Of Contracts : " + numberOfContracts +
+                ", ID Booking : " + IDBooking +
+                ", Customer Code : " + customerCode +
+                ", Deposit : " + deposit +
+                ", Total Amount : " + totalAmount;
     }
 }

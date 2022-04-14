@@ -1,6 +1,8 @@
 package case_study.models;
 
-public class Employee extends Person{
+import java.io.Serializable;
+
+public class Employee extends Person {
     private String degree;
     private String location;
     private long salary;
@@ -42,8 +44,8 @@ public class Employee extends Person{
     @Override
     public String toString() {
         return "Employee: " + super.toString() +
-                "\nDegree : " + degree + '\'' +
-                "\nLocation : " + location + '\'' +
-                "\nsalary : " + salary;
+                ", Degree : " + degree + '\'' +
+                ", Location : " + location + '\'' +
+                ", salary : " + salary;
     }
 }

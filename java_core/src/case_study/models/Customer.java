@@ -32,7 +32,7 @@ public class Customer extends Person{
     @Override
     public String toString() {
         return "Customer:" + super.toString() +
-                "\nCustomer Type : " + customerType + '\'' +
-                "\naddress: " + address;
+                ", Customer Type : " + customerType + '\'' +
+                ", address: " + address;
     }
 }

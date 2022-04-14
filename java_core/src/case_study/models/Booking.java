@@ -1,30 +1,31 @@
 package case_study.models;
 
-public class Booking {
-    private String IDBooking;
+import java.io.Serializable;
+
+public class Booking implements Serializable {
+    private Integer IDBooking;
     private String startDate;
     private String endDate;
-    private String customerCode;
-    private String serviceName;
-    private String serviceType;
+    private Customer customerCode;
+    private Facility facility;
 
     public Booking() {
     }
 
-    public Booking(String IDBooking, String startDate, String endDate, String customerCode, String serviceName, String serviceType) {
+    public Booking(Integer IDBooking, String startDate, String endDate, Customer customerCode, Facility facility) {
         this.IDBooking = IDBooking;
         this.startDate = startDate;
         this.endDate = endDate;
         this.customerCode = customerCode;
-        this.serviceName = serviceName;
-        this.serviceType = serviceType;
+        this.facility = facility;
     }
 
-    public String getIDBooking() {
+
+    public Integer getIDBooking() {
         return IDBooking;
     }
 
-    public void setIDBooking(String IDBooking) {
+    public void setIDBooking(Integer IDBooking) {
         this.IDBooking = IDBooking;
     }
 
@@ -44,38 +45,29 @@ public class Booking {
         this.endDate = endDate;
     }
 
-    public String getCustomerCode() {
+    public Customer getCustomerCode() {
         return customerCode;
     }
 
-    public void setCustomerCode(String customerCode) {
+    public void setCustomerCode(Customer customerCode) {
         this.customerCode = customerCode;
     }
 
-    public String getServiceName() {
-        return serviceName;
+    public Facility getFacility() {
+        return facility;
     }
 
-    public void setServiceName(String serviceName) {
-        this.serviceName = serviceName;
-    }
-
-    public String getServiceType() {
-        return serviceType;
-    }
-
-    public void setServiceType(String serviceType) {
-        this.serviceType = serviceType;
+    public void setFacility(Facility facility) {
+        this.facility = facility;
     }
 
     @Override
     public String toString() {
         return "Booking : " +
-                "\nID Booking='" + IDBooking +
-                "\nStart Date='" + startDate +
-                "\nEnd Date='" + endDate +
-                "\nCustomer Code='" + customerCode +
-                "\nService Name='" + serviceName +
-                "\nService Type='" + serviceType ;
+                "ID Booking : " + IDBooking +
+                ", Start Date : " + startDate +
+                ", End Date : " + endDate +
+                ", " + customerCode +
+                ", " + facility;
     }
 }
